@@ -1,22 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Framework\Framework.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Manager\ResourceManager.cpp">
+      <Filter>Framework\Manager\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Manager\SceneManager.cpp">
+      <Filter>Framework\Manager\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Object\Background.cpp">
+      <Filter>Framework\Object\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Object\Player.cpp">
+      <Filter>Framework\Object\Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{9867c4d5-798f-4bc7-8024-eb800db0ccf2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Framework\Manager">
+      <UniqueIdentifier>{fae3d74c-01e7-43c6-94ca-5982d872f278}</UniqueIdentifier>
     </Filter>
-    <Filter Include="리소스 파일">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Framework\Manager\Sources">
+      <UniqueIdentifier>{4ab8bc99-2f88-433f-82b8-31760db1aad9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Manager\Headers">
+      <UniqueIdentifier>{ac45d6ac-0a8a-4b0f-a580-4393133a0a52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Object">
+      <UniqueIdentifier>{6b01357d-a468-41ee-a4de-0cbc43493bb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Object\Headers">
+      <UniqueIdentifier>{87ed3fd0-fbcc-4577-9c4f-4d1298dade02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Object\Sources">
+      <UniqueIdentifier>{90460791-f783-4a18-932a-cacc40e5cb70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Scene">
+      <UniqueIdentifier>{735964f2-80e6-4050-a76a-0ee62192177a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
+    <ClInclude Include="Framework\Enum.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Framework.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Macro.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Manager\ResourceManager.h">
+      <Filter>Framework\Manager\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Manager\SceneManager.h">
+      <Filter>Framework\Manager\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Object\Background.h">
+      <Filter>Framework\Object\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Object\Player.h">
+      <Filter>Framework\Object\Headers</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
