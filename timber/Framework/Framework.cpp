@@ -5,7 +5,7 @@ void Framework::Init(int screenWidth, int screenHeight, std::string gameTitle)
 	sf::VideoMode vm(screenWidth, screenHeight); //inital size hd
 	window = new sf::RenderWindow(vm, gameTitle, sf::Style::Default);
 	
-	resourceManager.Init();
+	ResourceManager::GetInstance().Init();
 	sceneManager.Init();
 }
 

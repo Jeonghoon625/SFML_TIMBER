@@ -3,12 +3,14 @@
 
 void ResourceManager::Init()
 {
+	//Font
 	sf::Font fontKOMIKAP;
 	fontKOMIKAP.loadFromFile("fonts/KOMIKAP_.ttf");
 
 	typedef std::pair<std::string, sf::Font> FontPair;
 	fontResource.insert(FontPair("KOMIKAP", fontKOMIKAP));
 	
+	//Texture
 	sf::Texture textureCloud;
 	sf::Texture textureBackground;
 	sf::Texture textureLog;
@@ -56,6 +58,7 @@ void ResourceManager::Init()
 	textureResource.insert(TexturePair("PlayerTypeD", texturePlayerType[3]));
 	textureResource.insert(TexturePair("PlayerTypeE", texturePlayerType[4]));
 
+	//SoundBuffer
 	sf::SoundBuffer chopBuffer;
 	sf::SoundBuffer deathBuffer;
 	sf::SoundBuffer ootBuffer;
@@ -65,24 +68,43 @@ void ResourceManager::Init()
 
 	typedef std::pair<std::string, sf::SoundBuffer> SoundPair;
 	soundResource.insert(SoundPair("chop", chopBuffer));
-	soundResource.insert(SoundPair("death", chopBuffer));
-	soundResource.insert(SoundPair("oot", chopBuffer));
+	soundResource.insert(SoundPair("death", deathBuffer));
+	soundResource.insert(SoundPair("oot", ootBuffer));
 }
 
-sf::Font ResourceManager::GetFont(std::string fontName)
+sf::Font* ResourceManager::GetFont(std::string fontName)
 {
-	auto findIter = fontResource.find(fontName);
-	return findIter->second;
+	sf::Font* font = new sf::Font;
+	*font = fontResource.find(fontName)->second;
+	return font;
 }
 
-sf::Texture ResourceManager::GetTexture(std::string textureName)
+sf::Texture* ResourceManager::GetTexture(std::string textureName)
 {
-	auto findIter = textureResource.find(textureName);
-	return findIter->second;
+	sf::Texture* texture = new sf::Texture;
+	*texture = textureResource.find(textureName)->second;
+	return texture;
 }
 
-sf::SoundBuffer ResourceManager::GetSoundBuffer(std::string soundName)
+sf::SoundBuffer* ResourceManager::GetSoundBuffer(std::string soundName)
 {
-	auto findIter = soundResource.find(soundName);
-	return findIter->second;
+	sf::SoundBuffer* soundBuffer = new sf::SoundBuffer;
+	*soundBuffer = soundResource.find(soundName)->second;
+	return soundBuffer;
+}
+
+//For Singleton
+ResourceManager::ResourceManager()
+{
+}
+ResourceManager::ResourceManager(const ResourceManager& ref)
+{
+}
+ResourceManager::~ResourceManager()
+{
+}
+ResourceManager& ResourceManager::GetInstance()
+{
+	static ResourceManager instance;
+	return instance;
 }

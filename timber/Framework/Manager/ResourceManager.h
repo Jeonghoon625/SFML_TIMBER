@@ -9,11 +9,19 @@ private:
 	std::map<std::string, sf::Font> fontResource;
 	std::map<std::string, sf::Texture> textureResource;
 	std::map<std::string, sf::SoundBuffer> soundResource;
+
+	//For Singleton
+	ResourceManager();
+	ResourceManager(const ResourceManager& ref);
+	~ResourceManager();
+
 	
 public:
 	void Init();
 
-	sf::Font GetFont(std::string fontName);
-	sf::Texture GetTexture(std::string textureName);
-	sf::SoundBuffer GetSoundBuffer(std::string soundName);
+	static ResourceManager& GetInstance(); //For Singleton
+
+	sf::Font* GetFont(std::string fontName);
+	sf::Texture* GetTexture(std::string textureName);
+	sf::SoundBuffer* GetSoundBuffer(std::string soundName);
 };

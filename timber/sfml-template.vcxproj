@@ -22,9 +22,10 @@
     <ClCompile Include="Framework\Framework.cpp" />
     <ClCompile Include="Framework\Manager\ResourceManager.cpp" />
     <ClCompile Include="Framework\Manager\SceneManager.cpp" />
-    <ClCompile Include="Framework\Object\Background.cpp" />
     <ClCompile Include="Framework\Object\Player.cpp" />
+    <ClCompile Include="Framework\Object\Resource.cpp" />
     <ClCompile Include="Framework\Scene\Sources\Scene.cpp" />
+    <ClCompile Include="Framework\Scene\Sources\TitleScene.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -33,9 +34,10 @@
     <ClInclude Include="Framework\Macro.h" />
     <ClInclude Include="Framework\Manager\ResourceManager.h" />
     <ClInclude Include="Framework\Manager\SceneManager.h" />
-    <ClInclude Include="Framework\Object\Background.h" />
     <ClInclude Include="Framework\Object\Player.h" />
+    <ClInclude Include="Framework\Object\Resource.h" />
     <ClInclude Include="Framework\Scene\Headers\Scene.h" />
+    <ClInclude Include="Framework\Scene\Headers\TitleScene.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -4,7 +4,7 @@ int main()
 {
 	Framework timberFramework;
 
-	timberFramework.Init(1280, 720, "Timber!");
+	timberFramework.Init(1920, 1080, "Timber!");
 
 	return timberFramework.Run();
 }

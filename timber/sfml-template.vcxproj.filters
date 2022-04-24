@@ -11,14 +11,17 @@
     <ClCompile Include="Framework\Manager\SceneManager.cpp">
       <Filter>Framework\Manager\Sources</Filter>
     </ClCompile>
-    <ClCompile Include="Framework\Object\Background.cpp">
-      <Filter>Framework\Object\Sources</Filter>
-    </ClCompile>
     <ClCompile Include="Framework\Object\Player.cpp">
       <Filter>Framework\Object\Sources</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Scene\Sources\Scene.cpp">
       <Filter>Framework\Scene\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Scene\Sources\TitleScene.cpp">
+      <Filter>Framework\Scene\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Object\Resource.cpp">
+      <Filter>Framework\Object\Sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -69,14 +72,17 @@
     <ClInclude Include="Framework\Manager\SceneManager.h">
       <Filter>Framework\Manager\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Object\Background.h">
-      <Filter>Framework\Object\Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Framework\Object\Player.h">
       <Filter>Framework\Object\Headers</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Scene\Headers\Scene.h">
       <Filter>Framework\Scene\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Scene\Headers\TitleScene.h">
+      <Filter>Framework\Scene\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Object\Resource.h">
+      <Filter>Framework\Object\Headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

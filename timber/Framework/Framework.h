@@ -7,10 +7,9 @@
 class Framework
 {
 private:
-	sf::RenderWindow* window; 
+	sf::RenderWindow* window;
 	sf::Clock clock;
 
-	ResourceManager resourceManager;
 	SceneManager sceneManager;
 
 public:
