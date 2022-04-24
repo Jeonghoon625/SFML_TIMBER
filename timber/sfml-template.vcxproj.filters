@@ -17,6 +17,9 @@
     <ClCompile Include="Framework\Object\Player.cpp">
       <Filter>Framework\Object\Sources</Filter>
     </ClCompile>
+    <ClCompile Include="Framework\Scene\Sources\Scene.cpp">
+      <Filter>Framework\Scene\Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Framework">
@@ -43,6 +46,12 @@
     <Filter Include="Framework\Scene">
       <UniqueIdentifier>{735964f2-80e6-4050-a76a-0ee62192177a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\Scene\Headers">
+      <UniqueIdentifier>{9accd315-a1f0-4316-9e5a-e117fa1027df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Scene\Sources">
+      <UniqueIdentifier>{1134b631-27d3-4584-b418-0ff264408a7e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Enum.h">
@@ -65,6 +74,9 @@
     </ClInclude>
     <ClInclude Include="Framework\Object\Player.h">
       <Filter>Framework\Object\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Scene\Headers\Scene.h">
+      <Filter>Framework\Scene\Headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

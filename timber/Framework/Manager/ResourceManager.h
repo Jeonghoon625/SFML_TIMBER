@@ -1,36 +1,19 @@
 #pragma once
-#include "../Macro.h"
-#include "../Enum.h"
-#include "SFML/Graphics.hpp"
+#include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-
-using namespace sf;
+#include <map>
 
 class ResourceManager
-{
+{ 
 private:
-	Font fontKOMIKAP;
-
-	Texture textureCloud;
-	Texture textureBackground;
-	Texture textureLog;
-	Texture textureAxe;
-	Texture textureRIP;
-	Texture textureBee;
-	Texture textureTree;
-	Texture textureBranch;
-	Texture textureCharacterback;
-	Texture texture1P;
-	Texture texture2P;
-	Texture textureList[CHARACTER_MAX];
-	
-	SoundBuffer chopBuffer;
-	SoundBuffer deathBuffer;
-	SoundBuffer ootBuffer;
+	std::map<std::string, sf::Font> fontResource;
+	std::map<std::string, sf::Texture> textureResource;
+	std::map<std::string, sf::SoundBuffer> soundResource;
 	
 public:
 	void Init();
-	Texture GetTexture(TextureName name);
-	Font GetFont(FontName name);
-	SoundBuffer GetSoundBuffer(SoundBufferName name);
+
+	sf::Font GetFont(std::string fontName);
+	sf::Texture GetTexture(std::string textureName);
+	sf::SoundBuffer GetSoundBuffer(std::string soundName);
 };

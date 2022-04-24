@@ -1,9 +1,26 @@
+#include <vector>
 #include "ResourceManager.h"
 
 void ResourceManager::Init()
 {
+	sf::Font fontKOMIKAP;
 	fontKOMIKAP.loadFromFile("fonts/KOMIKAP_.ttf");
 
+	typedef std::pair<std::string, sf::Font> FontPair;
+	fontResource.insert(FontPair("KOMIKAP", fontKOMIKAP));
+	
+	sf::Texture textureCloud;
+	sf::Texture textureBackground;
+	sf::Texture textureLog;
+	sf::Texture textureAxe;
+	sf::Texture textureRIP;
+	sf::Texture textureBee;
+	sf::Texture textureTree;
+	sf::Texture textureBranch;
+	sf::Texture textureCharacterback;
+	sf::Texture texture1P;
+	sf::Texture texture2P;
+	std::vector<sf::Texture> texturePlayerType(5);
 	textureRIP.loadFromFile("graphics/rip.png");
 	textureAxe.loadFromFile("graphics/axe.png");
 	textureLog.loadFromFile("graphics/log.png");
@@ -15,113 +32,57 @@ void ResourceManager::Init()
 	textureCharacterback.loadFromFile("graphics/back.png");
 	texture1P.loadFromFile("graphics/1P.png");
 	texture2P.loadFromFile("graphics/2P.png");
-	textureList[0].loadFromFile("graphics/player1.png");
-	textureList[1].loadFromFile("graphics/player2.png");
-	textureList[2].loadFromFile("graphics/player3.png");
-	textureList[3].loadFromFile("graphics/player4.png");
-	textureList[4].loadFromFile("graphics/player5.png");
+	texturePlayerType[0].loadFromFile("graphics/player1.png");
+	texturePlayerType[1].loadFromFile("graphics/player2.png");
+	texturePlayerType[2].loadFromFile("graphics/player3.png");
+	texturePlayerType[3].loadFromFile("graphics/player4.png");
+	texturePlayerType[4].loadFromFile("graphics/player5.png");
 
+	typedef std::pair<std::string, sf::Texture> TexturePair;
+	textureResource.insert(TexturePair("Cloud", textureCloud));
+	textureResource.insert(TexturePair("Background", textureBackground));
+	textureResource.insert(TexturePair("Log", textureLog));
+	textureResource.insert(TexturePair("Axe", textureAxe));
+	textureResource.insert(TexturePair("RIP", textureRIP));
+	textureResource.insert(TexturePair("Bee", textureBee));
+	textureResource.insert(TexturePair("Tree", textureTree));
+	textureResource.insert(TexturePair("Branch", textureBranch));
+	textureResource.insert(TexturePair("Characterback", textureCharacterback));
+	textureResource.insert(TexturePair("1P", texture1P));
+	textureResource.insert(TexturePair("2P", texture2P));
+	textureResource.insert(TexturePair("PlayerTypeA", texturePlayerType[0]));
+	textureResource.insert(TexturePair("PlayerTypeB", texturePlayerType[1]));
+	textureResource.insert(TexturePair("PlayerTypeC", texturePlayerType[2]));
+	textureResource.insert(TexturePair("PlayerTypeD", texturePlayerType[3]));
+	textureResource.insert(TexturePair("PlayerTypeE", texturePlayerType[4]));
+
+	sf::SoundBuffer chopBuffer;
+	sf::SoundBuffer deathBuffer;
+	sf::SoundBuffer ootBuffer;
 	chopBuffer.loadFromFile("sound/chop.wav");
 	deathBuffer.loadFromFile("sound/death.wav");
 	ootBuffer.loadFromFile("sound/out_of_time.wav");
+
+	typedef std::pair<std::string, sf::SoundBuffer> SoundPair;
+	soundResource.insert(SoundPair("chop", chopBuffer));
+	soundResource.insert(SoundPair("death", chopBuffer));
+	soundResource.insert(SoundPair("oot", chopBuffer));
 }
 
-Font ResourceManager::GetFont(FontName name)
+sf::Font ResourceManager::GetFont(std::string fontName)
 {
-	Font font;
-
-	switch (name)
-	{
-	case FontName::fontKOMIKAP:
-		font = fontKOMIKAP;
-		break;
-
-	default:
-		break;
-	}
-
-	return font;
+	auto findIter = fontResource.find(fontName);
+	return findIter->second;
 }
 
-SoundBuffer ResourceManager::GetSoundBuffer(SoundBufferName name)
+sf::Texture ResourceManager::GetTexture(std::string textureName)
 {
-	SoundBuffer soundBuffer;
-
-	switch (name)
-	{
-	case SoundBufferName::chopBuffer:
-		soundBuffer = chopBuffer;
-		break;
-
-	case SoundBufferName::deathBuffer:
-		soundBuffer = deathBuffer;
-		break;
-
-	case SoundBufferName::ootBuffer:
-		soundBuffer = ootBuffer;
-		break;
-
-	default:
-		break;
-	}
-
-	return soundBuffer;
+	auto findIter = textureResource.find(textureName);
+	return findIter->second;
 }
 
-Texture ResourceManager::GetTexture(TextureName name)
+sf::SoundBuffer ResourceManager::GetSoundBuffer(std::string soundName)
 {
-	Texture texture;
-
-	switch (name)
-	{
-	case TextureName::textureCloud:
-		texture = textureCloud;
-		break;
-
-	case TextureName::textureBackground:
-		texture = textureCloud;
-		break;
-
-	case TextureName::textureLog:
-		texture = textureCloud;
-		break;
-
-	case TextureName::textureAxe:
-		texture = textureCloud;
-		break;
-
-	case TextureName::textureRIP:
-		texture = textureCloud;
-		break;
-
-	case TextureName::textureBee:
-		texture = textureCloud;
-		break;
-
-	case TextureName::textureTree:
-		texture = textureCloud;
-		break;
-
-	case TextureName::textureBranch:
-		texture = textureCloud;
-		break;
-
-	case TextureName::textureCharacterback:
-		texture = textureCloud;
-		break;
-
-	case TextureName::texture1P:
-		texture = textureCloud;
-		break;
-
-	case TextureName::texture2P:
-		texture = textureCloud;
-		break;
-
-	case TextureName::textureList:
-		texture = textureCloud;
-		break;
-	}
-
-	return texture;
+	auto findIter = soundResource.find(soundName);
+	return findIter->second;
 }

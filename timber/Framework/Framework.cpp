@@ -1,29 +1,29 @@
 #include "Framework.h"
 
-Framework::Framework() : vm(1920, 1080), window(vm, "Timber!", Style::Default)
+void Framework::Init(int screenWidth, int screenHeight, std::string gameTitle)
 {
-}
-
-void Framework::Init()
-{
+	sf::VideoMode vm(screenWidth, screenHeight); //inital size hd
+	window = new sf::RenderWindow(vm, gameTitle, sf::Style::Default);
+	
 	resourceManager.Init();
+	sceneManager.Init();
 }
 
-void Framework::Update()
+void Framework::Update(float deltaTime)
 {
-	Event event;
-	while (window.pollEvent(event))
+	sf::Event event;
+	while (window->pollEvent(event))
 	{
 		switch (event.type)
 		{
-		case Event::Closed:
-			window.close();
+		case sf::Event::Closed:
+			window->close();
 			break;
 		
-		case Event::KeyPressed:
-			if (event.key.code == Keyboard::Escape)
+		case sf::Event::KeyPressed:
+			if (event.key.code == sf::Keyboard::Escape)
 			{
-				window.close();
+				window->close();
 				break;
 			}
 
@@ -31,9 +31,28 @@ void Framework::Update()
 			break;
 		}
 	}
+
+	sceneManager.Update(deltaTime);
 }
 
-bool Framework::windowIsOpen()
+void Framework::Draw(sf::RenderWindow* window)
 {
-	return window.isOpen();
+	window->clear();
+
+	sceneManager.Draw(window);
+
+	window->display();
 }
+
+int Framework::Run() //Game Loop
+{
+	while (window->isOpen())
+	{
+		sf::Time dt = clock.restart();
+		Update(dt.asSeconds());
+		Draw(window);
+	}
+
+	return 0;
+}
+

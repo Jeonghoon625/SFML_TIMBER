@@ -1,19 +1,21 @@
 #pragma once
-#include "SFML/Graphics.hpp"
+#include <SFML/Graphics.hpp>
 #include "Manager/ResourceManager.h"
-
-using namespace sf;
+#include "Manager/SceneManager.h"
+#include <string>
 
 class Framework
 {
 private:
-	VideoMode vm;
-	RenderWindow window; 
-	Clock clock;
+	sf::RenderWindow* window; 
+	sf::Clock clock;
+
+	ResourceManager resourceManager;
+	SceneManager sceneManager;
 
 public:
-	Framework();
-	void Init();
-	void Update();
-	bool windowIsOpen();
+	void Init(int screenWidth, int screenHeight, std::string gameTitle);
+	void Update(float deltaTime);
+	void Draw(sf::RenderWindow* window);
+	int Run();
 };

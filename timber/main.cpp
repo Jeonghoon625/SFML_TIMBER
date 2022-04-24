@@ -2,15 +2,9 @@
 
 int main()
 {
-	Framework fw;
-	
-	fw.Init(); //초기화
+	Framework timberFramework;
 
-	while (fw.windowIsOpen()) //게임루프
-	{
-		fw.Update();
-		fw.Draw(); 
-	}
+	timberFramework.Init(1280, 720, "Timber!");
 
-	return 0;
+	return timberFramework.Run();
 }

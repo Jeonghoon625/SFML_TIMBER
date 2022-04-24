@@ -24,6 +24,7 @@
     <ClCompile Include="Framework\Manager\SceneManager.cpp" />
     <ClCompile Include="Framework\Object\Background.cpp" />
     <ClCompile Include="Framework\Object\Player.cpp" />
+    <ClCompile Include="Framework\Scene\Sources\Scene.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -34,6 +35,7 @@
     <ClInclude Include="Framework\Manager\SceneManager.h" />
     <ClInclude Include="Framework\Object\Background.h" />
     <ClInclude Include="Framework\Object\Player.h" />
+    <ClInclude Include="Framework\Scene\Headers\Scene.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
